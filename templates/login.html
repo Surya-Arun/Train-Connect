@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width initial-scale=1.0'>
+        <title>Login Page</title>
+        <link rel='stylesheet' href="/static/lstyle.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+
+        {% with messages=get_flashed_messages(with_categories=True)%}
+            {% if messages %}
+                {% for i,j in messages%}
+                    <script>
+                        Swal.fire(
+                            {
+                                icon:"{{'success' if i=='success' else 'error'}}",
+                                title:"{{j}}"
+                            }
+                        );
+                    </script>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class='login-hero'>
+            <div class='fm'>
+            <form method="post" action="/login">
+                {% if username %}
+                    <h1>Welcome Back! {{username}}</h1>
+                {% else %}
+                    <h1>Welcome Back!</h1>
+                {% endif %}
+                <div class='fm-group'>
+                    <label for='un'>Username</label>
+                    <input type='email' id='un' placeholder="Enter your Email" required name='email'>
+                </div>
+                <div class='fm-group'>
+                    <label for='pw'>Password</label>
+                    <input type='password' id='pw' placeholder="Enter Your Password" name='password'>
+                </div>
+                <div class='fm-group'>
+                    <button type='submit'>Login</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </body>
+</html>

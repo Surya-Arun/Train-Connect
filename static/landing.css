@@ -1,0 +1,83 @@
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.hero
+{
+    min-height:100vh;
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4)),url('/static/img/track.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    padding-bottom: 200px;
+    text-shadow:1px 1px 1px rgba(0,0,0,6);
+    color:black;
+    font-size: 1.2em;
+    
+}
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 80px 50px 80px;
+    border-radius: 5px;
+    transition: 0.3s;
+    background: linear-gradient(rgba(255,255,255,0.1));
+    border:3px solid wheat;
+    
+}
+
+.btn
+{
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bt{
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size:14px;
+    margin-right: 30px;
+    transition: 0.3s;
+    cursor: pointer;
+    min-width: 100px;
+}
+
+.bt:hover{
+    background-color: red;
+    color: darkblue;
+    border: 2px solid wheat;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+}
+
+h1{
+    color: wheat;
+    transition: 0.3s;
+    padding: 30px;
+}
+
+h1:hover
+{
+    color: rgb(222, 11, 92);
+}
+
+.hero p
+{
+    color: whitesmoke;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+p:hover{
+    color:rgb(212, 19, 19);
+}

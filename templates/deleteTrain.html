@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Delete Train Page</title>
+        <meta charset="UTF-8">
+        <meta name='viewport' content="width=device-width initial-scale=1.0">
+        <link rel='stylesheet' href="/static/deleteTrain.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+         {% with messages=get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for i,j in messages %}
+                        <script>
+                            Swal.fire({
+                                icon:"{{'success' if i=='success' else 'error'}}",
+                                title:"{{j}}"
+                            });
+                        </script>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+        <div class='hero'>
+            <div class='search'>
+                <input type='search' id='searchBar' placeholder="search by train id or name or date">
+            </div>
+            <button id='back' type='button'>Back</button>
+            <table class='tb'>
+                <tr>
+                    <th>Train ID</th>
+                    <th>Train Name</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Date</th>
+                    <th>Delete</th>
+                </tr>
+                {% if data %}
+                {% for i in data %}
+                <tr class='row'>
+                    <td class='tid'>{{i.tid}}</td>
+                    <td class='nm'>{{i.trainname}}</td>
+                    <td>{{i.source}}</td>
+                    <td>{{i.destination}}</td>
+                    <td class='dt-value'>{{i.date}}</td>
+                    <td><a href='/delete/{{i.tid}}/{{i.date}}'>Delete</a></td>
+                </tr>
+                {% endfor %}
+                {% endif %}
+            </table>
+        </div>
+        <script>
+            document.getElementById('back').addEventListener('click',function()
+        {
+            window.location.replace('/admindashboard')
+        });
+            document.getElementById('searchBar').addEventListener('input', function () {
+        const filter = this.value.toLowerCase();
+        const rows = document.querySelectorAll('.row');
+
+        rows.forEach(function (row) {
+          const nameCell = row.querySelector('.nm');
+          const dateCell = row.querySelector('.dt-value');
+          const idcell = row.querySelector('.tid')
+
+          if (nameCell && dateCell) {
+            const name = nameCell.textContent.toLowerCase();
+            const date = dateCell.textContent.toLowerCase();
+            const id = idcell.textContent.toLowerCase();
+            if (name.includes(filter) || date.includes(filter) || id.includes(filter)) {
+              row.style.display = 'table-row';
+            } else {
+              row.style.display = 'none';
+            }
+          }
+        });
+      });
+        
+    </script>
+    </body>
+</html>
+

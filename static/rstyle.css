@@ -1,0 +1,97 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.register-hero {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url('/static/route1.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+.fm {
+    background-color: rgba(255,255,255,0.85);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(235, 11, 11, 0.3);
+}
+
+h1{
+    padding-bottom: 30px;
+    color:rgb(113, 3, 3);
+    display: flex;
+    justify-content: center;
+}
+.fm-group
+{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 15px;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.fm-group label{
+    font-weight: bold;
+    padding-bottom: 15px; 
+    padding-right: 30px;;  
+}
+
+.fm-group input{
+
+    padding:8px;
+    border:1px solid red;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button{
+
+    width:100%;
+    padding-top: 10px ;
+    padding-bottom:10px ;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: rgb(167, 12, 12);
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    transition: 0.3s;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+button :hover{
+    background-color: darkblue;
+}
+
+p{
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.msgbox
+{
+    padding: 20px;
+    background-color: black;
+    color:white;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    animation: fadeOut 3s forwards;
+}
+
+/* Animation keyframes */
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}

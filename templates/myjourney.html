@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Journeys</title>
+    <link rel="stylesheet" href="/static/myjourney.css">
+</head>
+<body>
+    <div class='hero'>
+        <h2>My Journeys</h2>
+
+        {% if journeys %}
+        
+        <table class='tab'>
+            <thead>
+                <tr>
+                    <th>Train</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Travel Date</th>
+                    <th>Price</th>
+                    <th>Booking Date</th>
+                    <th>Timeline</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for journey in journeys %}
+                <tr>
+                    <td>{{ journey.trainname }}</td>
+                    <td>{{ journey.source }}</td>
+                    <td>{{ journey.destination }}</td>
+                    <td>{{ journey.departure }}</td>
+                    <td>{{ journey.arrival }}</td>
+                    <td>{{ journey.date }}</td>
+                    <td>{{ journey.price }}</td>
+                    <td>{{ journey.booking_date }}</td>
+                    <td>{{journey.timeline}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p style="text-align:center; color:red; margin-top:20px;">
+            You have no bookings yet. Book a train to see it here!
+        </p>
+    {% endif %}
+</body>
+</html>

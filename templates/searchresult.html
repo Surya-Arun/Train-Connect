@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width initial-scale=1.0'>
+        <title>Search Result</title>
+        <link rel='stylesheet' href='/static/srstyle.css'>
+    </head>
+
+<body>
+     {% if trains %}
+        <h3>Available Trains:</h3>
+        <table border="1" cellpadding="10">
+            <tr>
+                <th>Name</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th>Departure</th>
+                <th>Arrival</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Book</th>
+            </tr>
+            {% for train in trains %}
+            <tr>
+                <td>{{ train.trainname }}</td>
+                <td>{{ train.source }}</td>
+                <td>{{ train.destination }}</td>
+                <td>{{train.date}}</td>
+                <td>{{ train.departure }}</td>
+                <td>{{ train.arrival}}</td>
+                <td>{{ train.price }}</td>
+                <td>{{train.status}}</td>
+                <td><a href="/booknow/{{ train.tid }}">Book Now</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+    <p style="color:rgb(28, 4, 4); text-align:center; margin-top:20px; font-size: large;">
+        No trains found for your search. Please try different stations or class.
+    </p>
+    {% endif %}
+</body>
+</html>

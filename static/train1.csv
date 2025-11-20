@@ -1,0 +1,4 @@
+tid,trainname,source,destination,departure,arrival,price,status,date
+108,Bangalore Mail,Bangalore,Chennai,07:15,12:45,600,Available,2025-10-19
+117,Mysore Passenger,Mysore,Bangalore,16:30,19:00,150,Available,2025-10-24
+117,Mysore Passenger,Mysore,Bangalore,16:30,19:00,150,Available,2025-10-28

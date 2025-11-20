@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width initial-scale=1.0'>
+        <title>Explore Page</title>
+        <link rel='stylesheet' href='/static/estyle.css'>
+    </head>
+    <body>
+        <div class='container'>
+        <div class='box'>
+            <h1>Select a Country</h1>
+            <select class='slct'>
+                <option value=''>Choose a Country</option>
+                <option value='/india' >India</option>
+                <option value='/swiss'>Switzerland</option>
+                <option value='/norway'>Norway</option>
+            </select>
+            <script>
+  
+    document.querySelector(".slct").addEventListener("change", function() {
+      const page = this.value;
+      if (page) {
+        window.location.href = page; 
+      }
+    });
+  </script>
+        </div>
+        </div>
+        
+    </body>
+</html>

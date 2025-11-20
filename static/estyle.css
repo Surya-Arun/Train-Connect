@@ -1,0 +1,45 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.box
+{
+    padding: 80px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    border:5px solid rgb(234, 15, 15);
+    margin-bottom: 150px;
+}
+
+h1{
+    color:white;
+    padding: 20px;
+}
+
+.container
+{
+    height: 100vh;
+    background-image: url('https://cdn.pixabay.com/photo/2020/05/22/20/04/red-poppies-5206943_1280.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
+.slct
+{
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    border:2px solid red;
+
+}

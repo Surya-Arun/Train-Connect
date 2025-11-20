@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Page</title>
+    <link rel="stylesheet" href="/static/vstyle.css">
+</head>
+<body>
+    <div class='hero'>
+        <div class='search'>
+            <input type='search' id='searchBar' placeholder="search by train name or date">
+        </div>
+
+        <div class="tab">
+            <table>
+                <tr>
+                    <th class="dt">Train Name</th>
+                    <th class="dt">From</th>
+                    <th class="dt">To</th>
+                    <th class='dt'>Date</th>
+                    <th class="dt">Departure</th>
+                    <th class="dt">Arrival</th>
+                    <th class="dt">Price</th>
+                    <th class="dt">Book</th>
+                </tr>
+
+                {% for train in trains %}
+                <tr class="row">
+                    <td class="train nm">{{ train.trainname }}</td>
+                    <td>{{ train.source }}</td>
+                    <td>{{ train.destination }}</td>
+                    <td class="dt-value">{{train.date}}</td>
+                    <td>{{ train.departure }}</td>
+                    <td>{{ train.arrival }}</td>
+                    <td>Rs.{{ train.price }}</td>
+                    <td><a class="book-btn" href="/booknow/{{ train.tid }}">Book Now</a></td>
+                </tr>
+                {% endfor %}
+
+                {% if trains|length == 0 %}
+                <tr>
+                    <td colspan="8" style="text-align:center;">No trains available.</td>
+                </tr>
+                {% endif %}
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('searchBar').addEventListener('input', function () {
+            const filter = this.value.toLowerCase();
+            const rows = document.querySelectorAll('.row'); 
+
+            rows.forEach(function (row) {
+                const nameCell = row.querySelector('.nm');
+                const dateCell = row.querySelector('.dt-value');
+
+                if (nameCell && dateCell) {
+                    const name = nameCell.textContent.toLowerCase();
+                    const date = dateCell.textContent.toLowerCase();
+
+                    if (name.includes(filter) || date.includes(filter)) {
+                        row.style.display = 'table-row';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

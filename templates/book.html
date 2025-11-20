@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width initial-scale=1.0'>
+        <title>Book Page</title>
+        <link rel='stylesheet' href="/static/bstyle.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+        <div class='book-hero'>
+            <div class='btn' id='bt'>
+                <button>Back</button>
+            </div>
+           
+            {% with messages=get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for i,j in messages %}
+                        <script>
+                            Swal.fire({
+                                icon:"{{'success' if i=='success' else 'error'}}",
+                                title:"{{j}}"
+                            });
+                        </script>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            <div class='fm'>
+                <h1>Book Your Train</h1>
+                <form method='post' action="/book">
+                    <div class='fm-group'>
+                        <label for='fr'>From</label>
+                        <input id='fr' type='text' required placeholder="Source" name='source'>
+                    </div>
+                    <div class='fm-group'>
+                        <label for='to'>To</label>
+                        <input id='to' type='text' required placeholder="Destination" name='destination'>
+                    </div>
+                    <div class='fm-group'>
+                        <label for='dt' class='dat'>Date</label>
+                        <input type='date' id='dt' placeholder="Date of Journey" name='date'>
+                    </div>
+                    <div class='fm-group'>
+                        <label for='cls'>Class</label>
+                        <input type='text' id='cls' required placeholder="AC / non-AC / Sleeper" name='cls'>
+                    </div>
+                    <div class='fm-group'>
+                        <button type='submit'>Search Train</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
+            document.getElementById('bt').addEventListener('click',function()
+        {
+            window.location.replace('/home')
+        });
+        </script>
+
+    </body>
+</html>

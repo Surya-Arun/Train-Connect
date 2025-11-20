@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width initial-scale=1.0'>
+        <title>Login Page</title>
+        <link rel='stylesheet' href="/static/lstyle.css">
+    </head>
+    <body>
+        <div class='login-hero'>
+            <div class='fm'>
+            <form method="post" action="/adminlogin">
+                    <h1>Welcome Admin!</h1>
+                <div class='fm-group'>
+                    <label for='un'>Admin Name</label>
+                    <input type='text' id='un' required name='adminname'>
+                </div>
+                <div class='fm-group'>
+                    <label for='pw'>Admin Password</label>
+                    <input type='password' id='pw' required name='adminpassword'>
+                </div>
+                <div class='fm-group'>
+                    <button type='submit'>Login</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </body>
+</html>

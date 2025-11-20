@@ -1,0 +1,106 @@
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.hero {
+    min-height:100vh;
+    background:linear-gradient(135deg,white,blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap:30px;
+
+}
+
+.search {
+
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:30px;
+}
+
+.tab
+{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+   
+
+}
+th{
+    padding: 20px;
+    font-weight: bold;
+    font-size: large;
+     border:2px solid blue;
+}
+td
+{
+    padding: 30px;
+    color: maroon;
+    font-weight: 500;
+     border:2px solid blue;
+     text-align: center;
+}
+tr
+{
+    border:10px solid blue;
+    background-color:white;
+    
+}
+
+.train
+{
+    color:brown;
+    font-size: medium;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+.search input {
+    width: 350px;
+    padding: 12px 18px;
+    border: 2px solid blue;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    color: maroon;
+}
+
+.search input::placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+.search input:focus {
+    border-color: darkblue;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
+    background-color: #fffaf0;
+}
+
+.search button {
+    margin-left: 10px;
+    padding: 12px 18px;
+    border: none;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search button:hover {
+    background-color: darkblue;
+    transform: scale(1.05);
+}

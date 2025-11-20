@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register Page</title>
+        <meta charset="UTF-8">
+        <meta name='viewport' content="width=device-width initial-scale=1.0">
+        <link rel="stylesheet" href="/static/rstyle.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    </head>
+    <body>
+         {% with messages=get_flashed_messages(with_categories=True)%}
+            {% if messages %}
+                {% for i,j in messages%}
+                    <script>
+                        Swal.fire(
+                            {
+                                icon:"{{'success' if i=='success' else 'error'}}",
+                                title:"{{j}}"
+                            }
+                        );
+                    </script>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+       
+        <div class='register-hero'>
+
+        <div class='fm'>
+            
+            <h1>Register Yourself</h1>
+            <form method="POST" action="/register">
+                <div class='fm-group'>
+                    <label for='nm'>Name</label>
+                    <input type='text' id='nm' name='username' required>
+                </div>
+                <div class='fm-group'>
+                    <label for='em'>Email</label>
+                    <input type='Email' id='em' name='email' required>
+                </div>
+                <div class='fm-group'>
+                    <label for='pswd'>Password</label>
+                    <input type='password' id='pswd' name='password' required>
+                </div>
+                <div class='fm-group'>
+                    <label for='cry'>Country</label>
+                    <input type='text' id='cry' name='country'>
+                </div>
+                <button type='submit'>Submit</button>
+            </form>
+            <p> Already Have an Account ? <a href='/login'>Login</a></p>
+        </div>
+    </div>
+    <script>
+
+  setTimeout(function() {
+    let msgDiv = document.getElementById('msgbox');
+    if (msgDiv) {
+      msgDiv.style.display = 'none';
+    }
+  }, 2000);
+</script>
+
+    </body>
+</html>

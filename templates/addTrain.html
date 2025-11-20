@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Train Page</title>
+        <meta charset="UTF-8">
+        <meta name='viewport' content="width=device-width initial-scale=1.0">
+        <link rel='stylesheet' href="/static/addTrain.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+        {% with messages=get_flashed_messages(with_categories=True)%}
+            {% if messages %}
+                {% for i,j in messages%}
+                    <script>
+                        Swal.fire(
+                            {
+                                icon:"{{'success' if i=='success' else 'error'}}",
+                                title:"{{j}}"
+                            }
+                        );
+                    </script>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class='hero'>
+                <div class='bt'>
+                    <button id='csv'>+ Import CSV</button>
+                </div>
+                <form method='POST' action='/addTrain' class='fm-box'>
+                    <h1>Add Train</h1>
+                    <div class='fm-ele'>
+                        <label>Train ID</label>
+                        <input type='number' required name='tid'>
+                    </div>
+                    <div class='fm-ele'>
+                        <label>Train Name</label>
+                        <input type='text' required name='trainname'>
+                    </div>
+                    <div class='fm-ele'>
+                        <label>Source City</label>
+                        <input type='text' required name='source'>
+                    </div>
+                    <div class='fm-ele'>
+                        <label>Destination City</label>
+                        <input type='text' required name='destination'>
+                    </div>
+                    <div class='fm-ele'>
+                        <label>Date</label>
+                        <input type='date' required name='date'>
+                    </div>
+                    <div class='fm-ele'>
+                        <label>Departure</label>
+                        <input type='datetime' required name='departure'>
+                    </div>
+                    <div class='fm-ele'>
+                        <label>Arrival</label>
+                        <input type='datetime' required name='arrival'>
+                    </div>
+                    <div class='fm-ele'>
+                        <label>Price</label>
+                        <input type='number' required name='price'>
+                    </div>
+                    <div class='fm-ele'>
+                        <label>Status</label>
+                        <input type='text' required name='status'>
+                    </div>
+                    <div class='btn'>
+                        <button type='submit'>Add Train</button>
+                       
+                        <button type='button' id='reset'>Reset</button>
+                    </div>
+                </form>
+            </div>
+            <form method='POST' action='/importcsv' enctype='multipart/form-data'>
+            <div class='imcsv' id='icsv'>
+                <input type='file' required accept=".csv" name='csvfile'>
+                <button type='submit'>Import CSV</button>
+            </div>
+            </form>
+
+            <script>
+                document.getElementById('csv').addEventListener('click',function()
+                {
+                document.getElementById('icsv').style.display='block';
+                document.querySelector('.fm-box').style.display='none';
+                document.getElementById('csv').style.display='none';
+                });
+                window.addEventListener('click',function(event)
+                    {
+                        if(event.target==document.querySelector('.hero'))
+                        {
+                            document.getElementById('csv').style.display='block';
+                            document.querySelector('.fm-box').style.display='flex';
+                            document.getElementById('icsv').style.display='none';
+                        }
+                    });
+
+                    document.getElementById('reset').addEventListener('click',function()
+                {
+                    window.location.replace('/addTrain')
+                })
+            </script>
+    </body>
+</html>
+   
+
+

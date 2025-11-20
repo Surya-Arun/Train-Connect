@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Landing Page</title>
+        <meta charset="UTF-8">
+        <meta name='viewport' content="width=device-width initial-scale=1.0">
+        <link rel='stylesheet' href="/static/landing.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+
+        {% with messages=get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for i,j in messages %}
+                        <script>
+                            Swal.fire({
+                                icon:"{{'success' if i=='success' else 'error'}}",
+                                title:"{{j}}"
+                            });
+                        </script>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+        <div class='hero'>
+            
+        
+            <section>
+                <h1>Welcome to TrainConnect</h1>
+            
+                <p>Book Your Train Tickets easily and quickly</p>
+
+                <div class='btn'>
+                    <a href='/register'><button class='bt'>Register</button></a>
+                    <a href='/login' ><button class='bt'>Login</button></a>
+                    <a href='/adminlogin' ><button class='bt'>Admin Login</button></a>
+
+                </div>
+            </section>
+            
+        </div>
+        
+    </body>
+</html>
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width initial-scale=1.0'>
+        <title>Admin Dashboard Page</title>
+        <link rel='stylesheet' href="/static/admindashboard.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+        {% with messages=get_flashed_messages(with_categories=True)%}
+            {% if messages %}
+                {% for i,j in messages%}
+                    <script>
+                        Swal.fire(
+                            {
+                                icon:"{{'success' if i=='success' else 'error'}}",
+                                title:"{{j}}"
+                            }
+                        );
+                    </script>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class='hero'>
+
+            <div class='nav'>
+                <h2>Admin Dashboard</h2>
+                <ul>
+                    <li><a href='/addTrain'>Add Trains</a></li>
+                    
+                    <li><a href='/updateTrain'>Update Trains</a></li>
+                    
+                    <li><a href='/deleteTrain'>Delete Trains</a></li>
+                    <li><a href='/viewTrains'>View Trains</a></li>
+                    <li><a href='/viewBookings'>View Bookings</a></li>
+                    <li><a href='/adnlogout'>Logout</a></li>
+                </ul>
+            </div>
+            <div class='cards'>
+                <div class='card'>
+                    <img src='/static/img/traincpy.jpg'>
+                    <button><a href='/addTrain'>Add Trains</a></button>
+                </div>
+                <div class='card'>
+                    <img src='/static/img/train3.webp'>
+                    <button><a href='/updateTrain'>Update Trains</a></button>
+                </div>
+                <div class='card'>
+                    <img src='/static/img/train6.jpg'>
+                    <button><a href='/deleteTrain'>Delete Trains</a></button>
+                </div>
+                <div class='card'>
+                    <img src='/static/img/train9.png'>
+                    <button><a href='/viewTrains'>View Trains</a></button>
+                </div>
+                <div class='card'>
+                    <img src='/static/img/pass.webp'>
+                    <button><a href='/viewBookings'>View Bookings</a></button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home Page</title>
+        <meta charset="UTF-8">
+        <meta name='viewport' content="width=device-width initial-scale=1.0">
+        <link rel='stylesheet' href="/static/home.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+        {% with messages=get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for i,j in messages %}
+                        <script>
+                            Swal.fire({
+                                icon:"{{'success' if i=='success' else 'error'}}",
+                                title:"{{j}}"
+                            });
+                        </script>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        <nav class='navbar'>
+            <div class='brand'>TrainConnect</div>
+                <ul class='links'>
+                    <li><a href='/home'>Home</a></li>
+                    <li><a href='/book'>Book Train</a></li>
+                    <li><a href='/view'>View Trains</a></li>
+                    <li><a href='/myjourney/{{uid}}'>My Journey</a></li>
+                    <li><a href='/explore'>Explore</a></li>
+                    <li><a href='/logout'>Logout</a></li>
+                </ul>
+        </nav>
+        <div class='hero'>
+            <section>
+                
+            <h1>Welcome to TrainConnect , {{name}}</h1>
+            
+            <p>Book Your Train Tickets easily </p>
+
+            </section>
+        </div>
+        <footer>
+            <p>© 2025 TrainConnect — All Rights Reserved.</p>
+        </footer>
+        
+    </body>
+</html>
+

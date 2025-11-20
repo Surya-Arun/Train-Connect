@@ -1,0 +1,88 @@
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.login-hero
+{
+    height:100vh;
+    background-image: url('/static/img/train5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.fm
+{
+    background-color: white;
+    padding-top:50px;
+    padding-bottom:50px;
+    padding-left:50px;
+    padding-right:50px;
+    border-radius: 10px;
+    border:1px solid red;
+
+}
+
+.fm-group
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fm-group label{
+
+    font-size:18px;
+    font-weight: bold;
+    margin-top: 30px;
+    padding-right: 30px;;
+
+}
+
+.fm-group input{
+    font-size:14px;
+    margin-top: 30px;
+    padding:10px;
+    border-radius: 5px;
+    border:1px solid rgb(189, 7, 7);
+}
+
+button{
+    display: flex;
+    width:100%;
+    justify-content:center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 5px;
+    transition: 0.3px;
+    background-color: brown;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    border:1px solid rgb(134, 6, 6);
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:rgb(142, 7, 7);
+    
+}
+
+button:hover
+{
+    background-color: rgb(76, 3, 235);
+    color:white;
+}
+

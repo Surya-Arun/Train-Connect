@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>View Bookings Page</title>
+        <meta charset="UTF-8">
+        <meta name='viewport' content="width=device-width initial-scale=1.0">
+        <link rel='stylesheet' href="/static/deleteTrain.css">
+    </head>
+    <body>
+        <div class='hero'>
+            <div class='search'>
+                <input type='search' id='searchBar' placeholder="search by Booking ID / Train ID or Transaction or Travel date">
+            </div>
+            <table class='tb'>
+                <tr>
+                    <th >Booking ID</th>
+                    <th>Train ID</th>
+                    <th>User ID</th>
+                    <th>Card Name</th>
+                    <th>Card No.</th>
+                    <th>Expiry Date</th>
+                    <th>Transaction Date</th>
+                    <th>Travel Date</th>
+                </tr>
+                {% if bookingdata %}
+                {% for i in bookingdata %}
+                <tr class='row'>
+                    <td class='bid'>{{i.bid}}</td>
+                    <td class='tid'>{{i.tid}}</td>
+                    <td>{{i.uid}}</td>
+                    <td>{{i.cardname}}</td>
+                    <td>{{i.cardnumber}}</td>
+                    <td>{{i.expirydate}}</td>
+                    <td class='tdt'>{{i.date}}</td>
+                    <td class='trdt'>{{i.traveldate}}</td>
+                </tr>
+                {%endfor%}
+                {%endif%}
+            </table>
+        </div>
+        <script>
+        document.getElementById('searchBar').addEventListener('input', function () {
+            const filter = this.value.toLowerCase();
+            const rows = document.querySelectorAll('.row'); 
+
+            rows.forEach(function (row) {
+                const bookIDCell = row.querySelector('.bid');
+                const trainIDCell = row.querySelector('.tid');
+                const transactionDateCell = row.querySelector('.tdt');
+                const travelDateCell=row.querySelector('.trdt')
+
+                if (bookIDCell && trainIDCell && transactionDateCell && travelDateCell) {
+                    const bookingID = bookIDCell.textContent.toLowerCase();
+                    const trainID = trainIDCell.textContent.toLowerCase();
+                    const transactionDate = transactionDateCell.textContent.toLowerCase();
+                    const travelDate = travelDateCell.textContent.toLowerCase();
+
+                    if (bookingID.includes(filter) || trainID.includes(filter) || transactionDate.includes(filter) || travelDate.includes(filter)) 
+                    {
+                        row.style.display = 'table-row';
+                    } 
+                    
+                    else 
+                    {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+    </body>
+</html>
+
